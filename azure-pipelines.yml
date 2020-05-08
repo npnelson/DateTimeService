@@ -58,7 +58,7 @@ stages:
         versioningScheme: 'byEnvVar'
         versionEnvVar: 'GitVersion.NugetVersion'
 
-    - task: DotNetCoreCLI@2
+    - task: NuGetCommand@2
       displayName: Publish Packages
       condition: and(succeeded(),eq(variables['Build.SourceBranch'],'refs/heads/master'))
       inputs:
