@@ -4,7 +4,7 @@ using System.Runtime.CompilerServices;
 [assembly: InternalsVisibleTo("NetToolBox.DateTimeService.Tests")]
 namespace NetToolBox.DateTimeService
 {
-    internal sealed class DateTimeProviderService : IDateTimeService
+    public sealed class DateTimeProviderService : IDateTimeService
     {
         /// <summary>
         /// Returns the current system time in UTC
