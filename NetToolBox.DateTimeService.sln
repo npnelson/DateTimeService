@@ -1,0 +1,53 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29613.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{45D1EC39-FC5E-4619-8A59-00245C63F5F3}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{738982DE-07D0-4521-AE4F-CFD0340FA85F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{4363911B-C361-4653-923D-90E2A1BCA246}"
+	ProjectSection(SolutionItems) = preProject
+		azure-pipelines.yml = azure-pipelines.yml
+		.config\dotnet-tools.json = .config\dotnet-tools.json
+		GitVersion.yml = GitVersion.yml
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NetToolBox.DateTimeService", "src\NetToolBox.DateTimeService\NetToolBox.DateTimeService.csproj", "{F8D0BECE-243D-4D98-89C0-D27A7E266C93}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NetToolBox.DateTimeService.TestHelper", "src\NetToolBox.DateTimeService.TestHelper\NetToolBox.DateTimeService.TestHelper.csproj", "{FAA32518-48AB-47C0-B39C-9152366030A6}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NetToolBox.DateTimeService.Tests", "test\NetToolBox.DateTimeService.Tests\NetToolBox.DateTimeService.Tests.csproj", "{3EF9E1D3-4BB2-493B-BECB-2D8A2CB63047}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F8D0BECE-243D-4D98-89C0-D27A7E266C93}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F8D0BECE-243D-4D98-89C0-D27A7E266C93}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F8D0BECE-243D-4D98-89C0-D27A7E266C93}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F8D0BECE-243D-4D98-89C0-D27A7E266C93}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FAA32518-48AB-47C0-B39C-9152366030A6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FAA32518-48AB-47C0-B39C-9152366030A6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FAA32518-48AB-47C0-B39C-9152366030A6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FAA32518-48AB-47C0-B39C-9152366030A6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3EF9E1D3-4BB2-493B-BECB-2D8A2CB63047}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3EF9E1D3-4BB2-493B-BECB-2D8A2CB63047}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3EF9E1D3-4BB2-493B-BECB-2D8A2CB63047}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3EF9E1D3-4BB2-493B-BECB-2D8A2CB63047}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{F8D0BECE-243D-4D98-89C0-D27A7E266C93} = {45D1EC39-FC5E-4619-8A59-00245C63F5F3}
+		{FAA32518-48AB-47C0-B39C-9152366030A6} = {45D1EC39-FC5E-4619-8A59-00245C63F5F3}
+		{3EF9E1D3-4BB2-493B-BECB-2D8A2CB63047} = {738982DE-07D0-4521-AE4F-CFD0340FA85F}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {56B6F566-99F5-4B22-BAED-A3063A02F2D8}
+	EndGlobalSection
+EndGlobal
