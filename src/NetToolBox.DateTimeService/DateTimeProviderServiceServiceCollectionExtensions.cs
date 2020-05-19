@@ -1,4 +1,5 @@
-﻿using NetToolBox.DateTimeService;
+﻿using Microsoft.Extensions.DependencyInjection.Extensions;
+using NetToolBox.DateTimeService;
 
 namespace Microsoft.Extensions.DependencyInjection
 {
@@ -19,7 +20,7 @@ namespace Microsoft.Extensions.DependencyInjection
         /// <returns></returns>
         public static IServiceCollection AddDateTimeService(this IServiceCollection serviceCollection)
         {
-            serviceCollection.AddSingleton<IDateTimeService, DateTimeProviderService>();
+            serviceCollection.TryAddSingleton<IDateTimeService, DateTimeProviderService>();
             return serviceCollection;
         }
     }

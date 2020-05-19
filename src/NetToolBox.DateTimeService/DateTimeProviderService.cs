@@ -10,6 +10,7 @@ namespace NetToolBox.DateTimeService
         /// Returns the current system time in UTC
         /// </summary>
         public DateTime CurrentDateTimeUTC => System.DateTime.UtcNow;
+        public DateTimeOffset CurrentDateTimeOffset => System.DateTimeOffset.Now;
 
     }
 }

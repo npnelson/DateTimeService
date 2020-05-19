@@ -6,7 +6,8 @@ namespace NetToolBox.DateTimeService.TestHelper
     {
 
 
-        private DateTime? _currentDateTime;
+
+        private DateTimeOffset? _currentDateTimeOffset;
 
         /// <summary>
         /// Sets the CurrentDateTime for the IDateTimeProvider for testing purposes
@@ -14,7 +15,7 @@ namespace NetToolBox.DateTimeService.TestHelper
         /// <param name="dateTime"></param>
         public void SetCurrentDateTimeUTC(DateTime dateTime)
         {
-            _currentDateTime = dateTime;
+            _currentDateTimeOffset = new DateTimeOffset(dateTime);
         }
 
         /// <summary>
@@ -26,16 +27,38 @@ namespace NetToolBox.DateTimeService.TestHelper
         {
             get
             {
-                if (_currentDateTime == null) //if it hasn't been set, set it to current date time
-                {
-                    //to eliminate some precision problems when using datetime vs datetime2 in SQL, we will take the current time and chop the milliseconds off
-                    var currentDate = DateTime.Now;
-                    _currentDateTime = new DateTime(currentDate.Year, currentDate.Month, currentDate.Day, currentDate.Hour,
-                    currentDate.Minute, currentDate.Second);
-                }
-                return _currentDateTime.Value;
+                CheckAndSetCurrentDateTime();
+#pragma warning disable CS8629 // Nullable value type may be null.
+                return _currentDateTimeOffset.Value.DateTime;
+#pragma warning restore CS8629 // Nullable value type may be null.
             }
         }
+
+        public DateTimeOffset CurrentDateTimeOffset
+        {
+            get
+            {
+                CheckAndSetCurrentDateTime();
+#pragma warning disable CS8629 // Nullable value type may be null.
+                return _currentDateTimeOffset.Value;
+#pragma warning restore CS8629 // Nullable value type may be null.
+            }
+        }
+
+
+        private void CheckAndSetCurrentDateTime()
+        {
+            if (_currentDateTimeOffset == null)
+            {
+                //to eliminate some precision problems when using datetime vs datetime2 in SQL, we will take the current time and chop the milliseconds off
+                var currentDate = DateTime.UtcNow;
+                currentDate = new DateTime(currentDate.Year, currentDate.Month, currentDate.Day, currentDate.Hour,
+                currentDate.Minute, currentDate.Second);
+                _currentDateTimeOffset = new DateTimeOffset(currentDate);
+
+            }
+        }
+
 
         /// <summary>
         /// Adds seconds to the current DateTime value. 
@@ -44,11 +67,11 @@ namespace NetToolBox.DateTimeService.TestHelper
         /// <param name="seconds"></param>
         public void AdvanceSeconds(int seconds)
         {
-            if (_currentDateTime == null) //if it hasn't been set, set it to current date time
-            {
-                _currentDateTime = CurrentDateTimeUTC;
-            }
-            _currentDateTime = _currentDateTime.Value.AddSeconds(seconds);
+            CheckAndSetCurrentDateTime();
+#pragma warning disable CS8629 // Nullable value type may be null.
+            _currentDateTimeOffset = _currentDateTimeOffset.Value.AddSeconds(seconds);
+#pragma warning restore CS8629 // Nullable value type may be null.
+
         }
 
         /// <summary>
@@ -58,11 +81,10 @@ namespace NetToolBox.DateTimeService.TestHelper
         /// <param name="minutes"></param>
         public void AdvanceMinutes(int minutes)
         {
-            if (_currentDateTime == null) //if it hasn't been set, set it to current date time
-            {
-                _currentDateTime = CurrentDateTimeUTC;
-            }
-            _currentDateTime = _currentDateTime.Value.AddMinutes(minutes);
+            CheckAndSetCurrentDateTime();
+#pragma warning disable CS8629 // Nullable value type may be null.
+            _currentDateTimeOffset = _currentDateTimeOffset.Value.AddMinutes(minutes);
+#pragma warning restore CS8629 // Nullable value type may be null.
         }
 
         /// <summary>
@@ -72,11 +94,10 @@ namespace NetToolBox.DateTimeService.TestHelper
         /// <param name="days"></param>
         public void AdvanceDays(int days)
         {
-            if (_currentDateTime == null) //if it hasn't been set, set it to current date time
-            {
-                _currentDateTime = CurrentDateTimeUTC;
-            }
-            _currentDateTime = _currentDateTime.Value.AddDays(days);
+            CheckAndSetCurrentDateTime();
+#pragma warning disable CS8629 // Nullable value type may be null.
+            _currentDateTimeOffset = _currentDateTimeOffset.Value.AddDays(days);
+#pragma warning restore CS8629 // Nullable value type may be null.
         }
 
     }
