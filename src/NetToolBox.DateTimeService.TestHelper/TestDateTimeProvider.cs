@@ -17,6 +17,10 @@ namespace NetToolBox.DateTimeService.TestHelper
         {
             _currentDateTimeOffset = new DateTimeOffset(dateTime);
         }
+        public void SetCurrentDateTimeOffSet(DateTimeOffset dateTimeOffSet)
+        {
+            _currentDateTimeOffset = dateTimeOffSet;
+        }
 
         /// <summary>
         /// Gets the CurrentDateTime.  Initializes upon first call to then current datetime or can be set explicitly through SetCurrentDateTime
