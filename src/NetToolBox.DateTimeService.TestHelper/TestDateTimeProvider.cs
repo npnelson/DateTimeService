@@ -12,7 +12,7 @@ namespace NetToolBox.DateTimeService.TestHelper
         /// <param name="dateTime"></param>
         public void SetCurrentDateTimeUTC(DateTime dateTime)
         {
-            _currentDateTimeOffset = new DateTimeOffset(dateTime);
+            _currentDateTimeOffset = new DateTimeOffset(dateTime, TimeSpan.Zero);
         }
 
         public void SetCurrentDateTimeOffSet(DateTimeOffset dateTimeOffSet)
