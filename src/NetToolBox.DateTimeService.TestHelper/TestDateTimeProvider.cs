@@ -30,8 +30,9 @@ namespace NetToolBox.DateTimeService.TestHelper
             get
             {
                 CheckAndSetCurrentDateTime();
+
 #pragma warning disable CS8629 // Nullable value type may be null.
-                return _currentDateTimeOffset.Value.UtcDateTime;
+                return new DateTime(_currentDateTimeOffset.Value.UtcDateTime.Ticks, DateTimeKind.Unspecified);
 #pragma warning restore CS8629 // Nullable value type may be null.
             }
         }
