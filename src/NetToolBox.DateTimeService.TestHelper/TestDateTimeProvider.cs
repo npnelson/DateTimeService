@@ -4,9 +4,6 @@ namespace NetToolBox.DateTimeService.TestHelper
 {
     public sealed class TestDateTimeServiceProvider : IDateTimeService
     {
-
-
-
         private DateTimeOffset? _currentDateTimeOffset;
 
         /// <summary>
@@ -17,6 +14,7 @@ namespace NetToolBox.DateTimeService.TestHelper
         {
             _currentDateTimeOffset = new DateTimeOffset(dateTime);
         }
+
         public void SetCurrentDateTimeOffSet(DateTimeOffset dateTimeOffSet)
         {
             _currentDateTimeOffset = dateTimeOffSet;
@@ -33,7 +31,7 @@ namespace NetToolBox.DateTimeService.TestHelper
             {
                 CheckAndSetCurrentDateTime();
 #pragma warning disable CS8629 // Nullable value type may be null.
-                return _currentDateTimeOffset.Value.DateTime;
+                return _currentDateTimeOffset.Value.UtcDateTime;
 #pragma warning restore CS8629 // Nullable value type may be null.
             }
         }
@@ -49,7 +47,6 @@ namespace NetToolBox.DateTimeService.TestHelper
             }
         }
 
-
         private void CheckAndSetCurrentDateTime()
         {
             if (_currentDateTimeOffset == null)
@@ -59,13 +56,11 @@ namespace NetToolBox.DateTimeService.TestHelper
                 currentDate = new DateTime(currentDate.Year, currentDate.Month, currentDate.Day, currentDate.Hour,
                 currentDate.Minute, currentDate.Second);
                 _currentDateTimeOffset = new DateTimeOffset(currentDate);
-
             }
         }
 
-
         /// <summary>
-        /// Adds seconds to the current DateTime value. 
+        /// Adds seconds to the current DateTime value.
         /// If CurrentDateTime is null it sets it to the DateTime.Now and then adds the seconds
         /// </summary>
         /// <param name="seconds"></param>
@@ -75,11 +70,10 @@ namespace NetToolBox.DateTimeService.TestHelper
 #pragma warning disable CS8629 // Nullable value type may be null.
             _currentDateTimeOffset = _currentDateTimeOffset.Value.AddSeconds(seconds);
 #pragma warning restore CS8629 // Nullable value type may be null.
-
         }
 
         /// <summary>
-        /// Adds seconds to the current DateTime value. 
+        /// Adds seconds to the current DateTime value.
         /// If CurrentDateTime is null it sets it to the DateTime.Now and then adds the minutes
         /// </summary>
         /// <param name="minutes"></param>
@@ -92,7 +86,7 @@ namespace NetToolBox.DateTimeService.TestHelper
         }
 
         /// <summary>
-        /// Adds seconds to the current DateTime value. 
+        /// Adds seconds to the current DateTime value.
         /// If CurrentDateTime is null it sets it to the DateTime.Now and then adds the days
         /// </summary>
         /// <param name="days"></param>
@@ -103,6 +97,5 @@ namespace NetToolBox.DateTimeService.TestHelper
             _currentDateTimeOffset = _currentDateTimeOffset.Value.AddDays(days);
 #pragma warning restore CS8629 // Nullable value type may be null.
         }
-
     }
 }
