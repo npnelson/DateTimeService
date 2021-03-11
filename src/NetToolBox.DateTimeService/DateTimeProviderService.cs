@@ -2,6 +2,7 @@
 using System.Runtime.CompilerServices;
 
 [assembly: InternalsVisibleTo("NetToolBox.DateTimeService.Tests")]
+
 namespace NetToolBox.DateTimeService
 {
     public sealed class DateTimeProviderService : IDateTimeService
@@ -9,8 +10,8 @@ namespace NetToolBox.DateTimeService
         /// <summary>
         /// Returns the current system time in UTC
         /// </summary>
-        public DateTime CurrentDateTimeUTC => System.DateTime.UtcNow;
-        public DateTimeOffset CurrentDateTimeOffset => System.DateTimeOffset.Now;
+        public DateTime CurrentDateTimeUTC => new DateTime(DateTime.UtcNow.Ticks, DateTimeKind.Unspecified);
 
+        public DateTimeOffset CurrentDateTimeOffset => System.DateTimeOffset.Now;
     }
 }
